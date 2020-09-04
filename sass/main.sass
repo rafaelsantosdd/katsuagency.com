@@ -1,0 +1,758 @@
+.page-menu
+	position: fixed
+	top: 0
+	bottom: 0
+	left: 0
+	padding: 2.7rem 0 2.7rem 5.1rem
+	display: flex
+	flex-flow: column nowrap
+	transform: translateX(-100%)
+	justify-content: space-between
+	transition: 0.3s cubic-bezier(0.33, 1, 0.68, 1)
+	z-index: 99
+
+	&:hover .page-menu__item
+		opacity: 1
+
+	@media (max-width: 768px)
+		pointer-events: none
+		padding: 2.1rem 0 2.1rem 2.7rem
+
+
+.page-menu__logo
+	width: 90px
+
+	a
+		display: block
+
+	@media (max-width: 768px)
+		width: 67px
+		pointer-events: auto
+
+.page-menu__navigation
+	@extend %desktop
+
+.menu-mobile__navigation
+	@extend %mobile
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	opacity: 0
+	padding: 2.1rem 5.1rem
+	pointer-events: none
+	background: rgba(0,0,0,.9)
+	transition: opacity 0.75s cubic-bezier(0.65, 0, 0.35, 1)
+	z-index: 98
+
+	ul
+		height: 100%
+		display: flex
+		flex-flow: column
+		justify-content: center
+
+		li
+			opacity: 0
+			transform: translateX(-25%)
+			transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1)
+
+			&.li-animated
+				opacity: 1
+				transform: translateX(0)
+
+			a
+				opacity: 1
+
+				.page-menu__item
+					opacity: 1
+					font-size: 1.6rem
+
+				.page-menu__dot
+					opacity: .4
+
+	&.visible
+		opacity: 1
+		pointer-events: auto
+
+.page-menu__navigation, .menu-mobile__navigation
+	li
+		margin: 1.1rem 0
+
+		&.active, &:hover
+			a
+				opacity: 1
+	
+	a
+		display: block
+		padding: 1rem 0
+		opacity: .25
+		transition: 0.2s cubic-bezier(0.76, 0, 0.24, 1)
+
+.page-menu__dot
+	display: inline-block
+	width: 6px
+	height: 6px
+	border-radius: 100%
+	background-color: white
+
+.page-menu__item
+	font-size: 1.2rem
+	color: white
+	font-weight: 600
+	letter-spacing: 0.25rem
+	text-transform: uppercase
+	margin-left: 1.6rem
+	opacity: 0
+	transition: 0.25s cubic-bezier(0.65, 0, 0.35, 1)
+
+.page-menu__social
+	padding: 0
+	margin: 0
+
+	li
+		display: inline-block
+		margin-right: 2.1rem
+	
+	a
+		font-size: 1.6rem
+		color: black
+		padding: 0.6rem
+
+	@media (max-width: 768px)
+		pointer-events: none
+		opacity: 0
+		transform: translateY(100%)
+		transition: 0.6s cubic-bezier(0.65, 0, 0.35, 1)
+
+		&.visible
+			pointer-events: auto
+			transform: translateY(0)
+			opacity: 1
+
+.page-footer
+	position: fixed
+	bottom: 0
+	left: 50%
+	right: 0
+	display: flex
+	justify-content: space-between
+	padding: 2.7rem 5.1rem 2.7rem 0
+	transform: translateY(100%)
+	transition: 0.3s cubic-bezier(0.33, 1, 0.68, 1)
+	z-index: 99
+
+	@media (max-width: 768px)
+		left: auto
+
+.page-footer__next
+	transform: translateX(-50%)
+	@extend %desktop
+
+	a
+		display: flex
+		flex-flow: column nowrap
+		align-items: center
+		color: white
+
+		span
+			display: block
+			font-size: 1.2rem
+			font-weight: 600
+			letter-spacing: 0.05rem
+		
+		i
+			display: block
+			font-size: 1rem
+			margin: 0.6rem 0 0 0
+			transition: 0.3s cubic-bezier(0.65, 0, 0.35, 1)
+		
+		&:hover
+			i
+				transform: translateY(50%)
+	
+	&.back-home
+		a
+			span
+				order: 2
+			
+			i
+				order: 1
+				margin: 0 0 0.6rem 0
+
+				&:before
+					content: "\f062"
+		
+			&:hover i
+				transform: translateY(-50%)
+
+.page-footer__contact	
+	.page-footer__contact-link
+		font-size: 1.6rem
+		color: black
+		padding: 1rem
+
+		@media (max-width: 768px)
+			display: none
+			opacity: 0
+	
+	.page-footer__contact-email
+		display: none
+		font-size: 1.2rem
+		font-weight: 600
+		letter-spacing: 0.05rem
+		text-align: right
+		text-decoration: underline
+
+
+
+// SECTIONS
+
+.page-section
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	width: 100%
+	height: 100%
+	color: white
+	visibility: hidden
+
+	&.section--active
+		visibility: visible
+	
+	@media (max-width: 768px)
+		position: relative
+		height: auto
+		visibility: visible
+
+.page-section__header
+	margin-top: 9rem
+	margin-bottom: 2.7rem
+
+.page-section__subtitle
+	font-size: 1rem
+	font-weight: 600
+	letter-spacing: 0.25rem
+	margin: 0
+	opacity: .55
+
+.page-section__title
+	font-size: 2.7rem
+	font-weight: 700
+	margin: 1rem 0 0
+
+.scroll-warning
+	display: block
+	position: fixed
+	left: 0
+	right: 0
+	background-color: white
+	height: 0px
+	transition: height 0.3s ease-in-out
+
+.scroll-warning--up
+	top: 0
+
+.scroll-warning--down
+	bottom: 0
+
+
+
+
+// HOME
+
+.section-home
+
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		background: rgba(0,0,0,.5)
+		z-index: -1
+	
+	&:before
+		content: ""
+		position: absolute
+		top: 85vh
+		left: 0
+		bottom: 0
+		right: 0
+		background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1))
+
+	@media (max-width: 768px)
+		height: 100vh
+
+		.container
+			padding: 9.2rem 0
+
+.section-home__background
+	position: absolute
+	right: 0
+	bottom: 0
+	min-width: 100%
+	min-height: 100%
+	height: 100%
+	object-fit: cover
+	z-index: -1
+
+	@media (max-width: 768px)
+		height: 100vh
+		top: 0
+		bottom: auto
+
+.section-home__call
+	width: 100%
+	height: 100%
+	display: flex
+	flex-flow: column nowrap
+	justify-content: center
+
+.section-home__main
+	font-size: 5.1rem
+	font-weight: 700
+	margin: 3.8rem 0 0 0
+
+	@media (max-width: 768px)
+		font-size: 3.8rem
+	
+	@media (max-width: 425px)
+		font-size: 2.7rem
+
+		.preparation
+			margin-top: 0.6rem
+	
+	@media (max-width: 320px)
+		font-size: 2.1rem
+
+
+.section-home__compl
+	+font-size1(2.1rem)
+	font-weight: 500
+	letter-spacing: 0.05rem
+	margin-top: 2.1rem
+	margin-bottom: 0
+
+	@media (max-width: 768px)
+		+font-size1(1.6rem)
+	
+	@media (max-width: 425px)
+		+font-size1(1.2rem)
+	
+	@media (max-width: 320px)
+		+font-size1(1.1rem)
+	
+.section-home__the-call
+	@extend %desktop
+	display: inline-block
+	margin-top: 3.8rem
+
+	.button
+		margin: 0
+
+
+.scroll-it
+	position: fixed
+	right: 5.5rem
+	top: 50%
+	transform: translateY(-25%)
+	width: 27px
+	z-index: 98
+	opacity: 0
+	transition: opacity 0.15s ease-in-out
+	@extend %desktop
+
+	&.visible
+		transition-delay: 1.5s
+		opacity: 1
+
+	svg
+		width: 100%
+		transform: translateY(-15%)
+		animation: scroll 3s cubic-bezier(0.33, 1, 0.68, 1) 1.5s infinite 
+
+
+		path
+			fill: white
+
+@keyframes scroll
+	0%
+		transform: translateY(-15%)
+
+	50%
+		transform: translateY(15%)
+	
+	100%
+		transform: translateY(-15%)
+
+
+
+// PROJECTS
+
+.section-projects
+	overflow-y: auto
+	overflow-x: hidden
+	scrollbar-width: none
+	-ms-overflow-style: none
+
+	&::-webkit-scrollbar
+		width: 0px
+		background: transparent
+	
+	@media (max-width: 768px)
+		overflow: visible
+
+.projects__list
+	display: flex
+	flex-flow: row wrap
+	padding-bottom: 9rem
+	margin-top: 6.7rem
+	overflow: visible!important
+
+	@media (max-width: 768px)
+		padding: 0
+
+.projects__single-container
+	width: 50%
+
+	&:first-child
+		margin-top: 0
+
+	&:nth-child(odd)
+		padding-right: 4.5rem
+
+		@media (max-width: 600px)
+			padding-right: 3.35rem
+		
+		@media (max-width: 425px)
+			padding: 0
+			margin-top: 9rem
+	
+	&:nth-child(even)
+		padding-left: 4.5rem
+		margin-top: 18rem
+
+		@media (max-width: 600px)
+			padding-left: 3.35rem
+		
+		@media (max-width: 425px)
+			padding: 0
+			margin-top: 9rem
+	
+	@media (max-width: 425px)
+		width: 100%
+
+		&:first-child
+			margin-top: 0
+	
+.projects__single
+	position: relative
+	width: 100%
+	padding-top: 100%
+
+	&:hover
+		.projects__title
+			bottom: -1.6rem
+
+		.projects__image img
+			transform: scale(1.1)
+
+.projects__inner
+	display: block
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+
+	&, .projects__title
+		color: white
+
+		&:active, &:hover, &:focus
+			color: white
+
+.projects__image
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	overflow: hidden
+	z-index: 1
+
+	img
+		height: 100%
+		object-fit: cover
+		transform: scale(1.01)
+		transition: 0.5s cubic-bezier(0.76, 0, 0.24, 1)
+
+	&:after
+		content: ""
+		display: block
+		position: absolute
+		top: 60%
+		right: 0
+		left: 0
+		bottom: 0
+		background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.7))
+		z-index: 1
+
+.projects__title
+	position: absolute
+	left: 2.7rem
+	right: 0
+	bottom: -3.8rem
+	font-size: 5.1rem
+	line-height: 5.1rem
+	font-weight: 700
+	margin: 0
+	transition: 0.5s cubic-bezier(0.76, 0, 0.24, 1)
+	z-index: 2
+
+	@media (max-width: 768px)
+		font-size: 3.8rem
+		line-height: 3.8rem
+	
+	@media (max-width: 600px)
+		left: 1.6rem
+		right: -1.6rem
+		bottom: -4.7rem
+	
+	@media (max-width: 425px)
+		bottom: -1rem
+
+
+
+
+// SOBRE
+
+.section-about__row
+	display: flex
+
+	@media (max-width: 768px)
+		flex-flow: row wrap
+
+.section-about .content
+	width: percentage(5/10)
+
+	p:first-of-type
+		margin-top: 0
+
+	@media (max-width: 768px)
+		width: percentage(8/12)
+		padding-bottom: 2.7rem
+
+	@media (max-width: 425px)
+		width: 100%
+
+.section-about__right
+	width: percentage(4/10)
+	margin-left: percentage(1/10)
+
+	@media (max-width: 768px)
+		width: 100%
+		margin-left: 0
+
+.section-about__call
+	margin-top: 3.8rem
+
+	.button
+		margin-top: 0.6rem
+	
+	@media (max-width: 768px)
+		display: none
+
+
+
+
+// CONTATO
+
+.section-contact
+	.content
+		width: percentage(5/10)
+
+		@media (max-width: 768px)
+			width: percentage(8/12)
+		
+		@media (max-width: 425px)
+			width: 100%
+	
+	@media (max-width: 768px)
+		padding-bottom: 9rem
+
+.contact__form-fields
+	display: flex
+
+	@media (max-width: 768px)
+		flex-flow: row wrap
+		width: percentage(8/12)
+
+	@media (max-width: 425px)
+		width: 100%
+
+.contact__form-column
+	width: percentage(4/10)
+	margin-left: percentage(1/10)
+
+	@media (max-width: 768px)
+		width: 100%
+		margin-left: 0
+
+.first-column
+	margin-left: 0
+
+.wpcf7-form p
+	margin: 0
+
+.contact__form-label
+	display: block
+	font-size: 1.2rem
+	font-weight: 600
+	letter-spacing: 0.1rem
+	margin-top: 3.8rem
+
+	@media (max-width: 320px)
+		font-size: 1.1rem
+
+.contact__form
+	input:not([type="submit"]), textarea
+		width: 100%
+		height: 3rem
+		font-size: 1.4rem
+		color: white
+		background: none
+		border: none
+		border-bottom: 1px solid #616161
+		padding: 0.6rem 0
+		transition: border-bottom-color 0.15s ease-in-out
+
+		&:focus, &:active
+			border-bottom-color: white
+	
+	textarea
+		resize: none
+		transition: height 1s cubic-bezier(0.65, 0, 0.35, 1), border-bottom-color 0.15s ease-in-out
+
+		&:focus, &:active
+			height: 12rem
+
+	.button
+		margin-top: 2.1rem
+
+.wpcf7-submit
+	transition: border-color 0.3s cubic-bezier(0.76, 0, 0.24, 1)
+	
+	.submit__text
+		transition: opacity 0.3s cubic-bezier(0.76, 0, 0.24, 1), color 0.25s cubic-bezier(0.76, 0, 0.24, 1)
+
+	&.loading
+		&:after
+			transform: translateY(0)
+		
+		.submit__text
+			color: white
+			opacity: 0.2
+
+		.button__loading
+			opacity: 1
+
+	&.feedback
+		.button__loading
+			opacity: 0
+
+		.button__feedback
+			opacity: 1
+	
+	&.submit--danger
+		border-color: #FFC400
+
+		.feedback--yellow
+			display: block
+	
+	&.submit--warning
+		border-color: #F44336
+
+		.feedback--red
+			display: block
+	
+	&.submit--success
+		border-color: #00E676
+
+		.feedback--green
+			display: block
+
+.button__loading,
+.button__feedback
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	opacity: 0
+	transition: opacity 0.3s cubic-bezier(0.76, 0, 0.24, 1)
+	z-index: 1
+
+.button__loading
+	span
+		display: block
+		width: 1.2rem
+		height: 1.2rem
+		background: white
+		border-radius: 100%
+		transform: translateY(-6px)
+		animation: loadball 0.7s cubic-bezier(0.5, 1, 0.89, 1) infinite
+
+@keyframes loadball
+	0%
+		transform: translateY(-6px)
+
+	50%
+		transform: translateY(6px)
+
+	100%
+		transform: translateY(-6px)
+
+.button__feedback
+	i
+		display: none
+		font-size: 2.1rem
+
+	.feedback--yellow
+		color: #FFC400
+	
+	.feedback--red
+		color: #F44336
+
+	.feedback--green
+		color: #00E676
+
+.screen-reader-response
+	display: none
+
+.wpcf7-response-output
+	position: relative
+	float: left
+	height: 5.1rem
+	width: 40%
+	+font-size1(1.2rem)
+	margin-left: 2.7rem
+	margin-top: 2.1rem
+	padding-left: 1rem
+
+	&.alert-danger
+		border-left: 2px solid #FFC400
+	
+	&.alert-warning
+		border-left: 2px solid #F44336
+	
+	&.alert-success
+		border-left: 2px solid #00E676
+
+.wpcf7-not-valid-tip
+	display: none
+
+.wpcf7-not-valid
+	border-bottom: 1px solid #F44336!important

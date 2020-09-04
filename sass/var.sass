@@ -1,0 +1,24 @@
+// FONT-SIZE MIXINS
+=font-size1($size)
+	font-size: 		$size
+	line-height: 	$size * 1.618
+
+=font-size2($size)
+	font-size: 		$size
+	line-height: 	$size * 1.333
+
+// FONT-FAMILY PLACEHOLDERS
+%text
+	font-family: "Montserrat", Helvetica, Arial, sans-serif
+
+
+// MEDIA QUERY PLACEHOLDERS
+%desktop
+	@media (max-width: 768px)
+		display: none!important
+
+%mobile
+	display: none
+
+	@media (max-width: 768px)
+		display: block

@@ -1,0 +1,355 @@
+.single__header
+	margin-top: 9.2rem
+
+	@media (max-width: 425px)
+		margin-top: 13.5rem
+
+.single__back
+	position: fixed
+	top: 0
+	right: 0
+	padding: 2.7rem 5.1rem 0 0
+	transform: translateX(100%)
+	transition: 0.3s cubic-bezier(0.33, 1, 0.68, 1)
+	z-index: 99
+
+	a
+		display: block
+		padding: 1rem
+		color: black
+		font-size: 2.7rem
+
+	@media (max-width: 768px)
+		padding: 2.1rem 2.7rem 0 0
+
+
+.single__title
+	font-size: 5.1rem
+
+	@media (max-width: 425px)
+		font-size: 2.8rem
+
+.single__sub
+	font-size: 2.1rem
+	font-weight: 600
+	display: flex
+
+	@media (max-width: 375px)
+		font-size: 1.6rem
+
+	ul
+		display: inline-block
+		list-style: none
+		margin: 0 0 0 6.7rem
+		padding: 0
+
+		li
+			display: inline-block
+		
+			&:not(:last-child)::after
+				content: ", "
+
+		@media (max-width: 375px)
+			margin: 0 0 0 3.8rem
+
+.single__image
+	margin-top: 3.8rem
+
+.single__image2
+	margin: 3.8rem 0 6.7rem
+
+	@media (max-width: 600px)
+		margin: 3.8rem 0 2.1rem
+
+.single__video-wrapper
+	position: relative
+	margin: 3.8rem 0 6.7rem
+
+	@media (max-width: 600px)
+		margin: 3.8rem 0 2.1rem
+
+.single__video-play
+	position: absolute
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	background: rgba(0,0,0,.5)
+	cursor: pointer
+	transition: 0.3s ease-in-out
+	z-index: 1
+
+	&.played
+		opacity: 0
+
+	&:hover .play-button
+		opacity: 1
+
+	&.loading
+		.play-button
+			opacity: 0
+
+		.loading-ball
+			opacity: 1
+
+
+.single__video-play-wrapper
+	position: relative
+	width: 100%
+	height: 100%
+
+	.play-button,
+	.loading-ball
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+
+	.play-button
+		display: block
+		color: white
+		font-size: 9rem
+		opacity: .7
+		transition: 0.1s ease-in-out
+
+	.loading-ball
+		opacity: 0
+		transition: 0.1s ease-in-out
+
+		span
+			display: block
+			width: 5.1rem
+			height: 5.1rem
+			background: white
+			border-radius: 100%
+			transform: translateY(-25px)
+			animation: loadvideo 0.7s cubic-bezier(0.5, 1, 0.89, 1) infinite
+
+@keyframes loadvideo
+	0%
+		transform: translateY(-25px)
+
+	50%
+		transform: translateY(25px)
+
+	100%
+		transform: translateY(-25px)
+
+
+.single__video
+	width: 100%
+	height: 100%
+	display: flex
+
+.single__section-header
+	margin: 6.7rem 0 9rem
+	display: flex
+
+	@media (max-width: 600px)
+		flex-flow: row wrap
+
+	@media (max-width: 375px)
+		margin: 3.8rem 0
+
+.single__section-title
+	font-size: 2.1rem
+	width: 30%
+	margin: 0
+
+	@media (max-width: 600px)
+		width: 100%
+
+	@media (max-width: 375px)
+		font-size: 1.6rem
+	
+.single__section-text
+	+font-size1(1.4rem)
+	width: 70%
+	padding-left: 1.6rem
+
+	p:first-child
+		margin: 0
+
+	@media (max-width: 600px)
+		width: 100%
+		padding-left: 0
+		margin-top: 1.6rem
+
+	@media (max-width: 375px)
+		+font-size1(1.2rem)
+
+.single__gallery-wrapper
+	position: relative
+	width: 100%
+	margin-bottom: 6.7rem
+
+.single__gallery-prev,
+.single__gallery-next
+	@extend %desktop
+	position: absolute
+	top: 0
+	bottom: 0
+	z-index: 100
+
+	&.disabled
+		cursor: auto
+
+.single__gallery-prev
+	left: 0
+	right: 50%
+	cursor: url(../imgs/cursor-prev.png), w-resize
+
+.single__gallery-next
+	left: 50%
+	right: 0
+	cursor: url(../imgs/cursor-next.png), e-resize
+
+	&.back
+		cursor: url(../imgs/cursor-back.png), auto;
+
+.single__gallery-scroll
+	position: relative
+	transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1)
+
+.single__gallery-image
+	position: absolute
+
+	@media (max-width: 600px)
+		position: static
+		margin-top: 1.6rem
+
+.single__gallery-count
+	@extend %desktop
+	font-size: 1.4rem
+	font-weight: 600
+	position: absolute
+	right: 5.1rem
+	bottom: -2.7rem
+	letter-spacing: 0.2rem
+
+.single__others-header
+	margin-top: 13.5rem
+	margin-bottom: 9rem
+
+	.button
+		margin-top: 2.1rem
+	
+	.call-text
+		font-weight: 600
+		margin-bottom: 1rem
+
+		@media (max-width: 425px)
+			font-size: 1.6rem
+			margin-bottom: 0.5rem
+		
+		@media (max-width: 320px)
+			font-size: 1.3rem
+
+.single__others
+	width: 100%
+	height: 27rem
+	display: flex
+
+	@media (max-width: 600px)
+		height: 16rem
+
+.single__prev,
+.single__next
+	position: relative
+	height: 100%
+	overflow: hidden
+	flex-grow: 1
+
+	a
+		position: relative
+		display: block
+		width: 100%
+		height: 100%
+
+		img
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			height: 100%
+			object-fit: cover
+			transition: 0.3s cubic-bezier(0.65, 0, 0.35, 1)
+			z-index: -2
+
+	&:after
+		content: ""
+		display: block
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+		background: rgba(0,0,0,.75)
+		z-index: -1
+
+.single__prev:hover
+	.single__others-arrow
+		transform: translateX(-50%)
+	
+	img
+		transform: translateY(-50%) scale(1.05)
+
+.single__next:hover
+	.single__others-arrow
+		transform: translateX(50%)
+	
+	img
+		transform: translateY(-50%) scale(1.05)
+
+.single__others-call
+	display: flex
+	flex-flow: column
+	align-items: center
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	color: white
+	z-index: 1
+
+.single__others-title
+	font-size: 2.7rem
+	margin: 1.6rem 0 0 0
+
+	@media (max-width: 425px)
+		font-size: 2.1rem
+	
+	@media (max-width: 320px)
+		font-size: 1.6rem
+
+.single__others-type
+	font-size: 1.6rem
+	margin-top: 1.6rem
+
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			display: inline-block
+		
+			&:not(:last-child)::after
+				content: ", "
+
+.single__others-arrow
+	font-size: 2.1rem
+	margin-top: 1.6rem
+	transition: 0.3s cubic-bezier(0.65, 0, 0.35, 1)
+
+	@media (max-width: 425px)
+		font-size: 1.6rem
+		margin-top: 1.2rem
+
+.s__preparation
+	transform: translateY(38px)
+	opacity: 0
+	transition: 0.25s cubic-bezier(0.33, 1, 0.68, 1)
+
+	&.entrance
+		transform: translateY(0)
+		opacity: 1
